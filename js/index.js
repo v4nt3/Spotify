@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const prevBtn = document.querySelector(".prev");
   const nextBtn = document.querySelector(".next");
 
-  const scrollAmount = 450; // Cantidad de desplazamiento
+  const scrollAmount = 450; 
 
   prevBtn.addEventListener("click", () => {
     carousel.scrollBy({ left: -scrollAmount, behavior: "smooth" });
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
   });
 
-  // Verificar si se oculta la flecha derecha
+  // ocultar flechas si no hay mas videos en esa dirección
   function checkButtonsVisibility() {
     const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
     prevBtn.style.display = carousel.scrollLeft > 0 ? "block" : "none";
