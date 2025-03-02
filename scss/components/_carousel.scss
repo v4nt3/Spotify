@@ -1,0 +1,95 @@
+@use "./mixinColor";
+
+.trending-section {
+    background: mixinColor.$bg-color;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: inset 4px 4px 6px mixinColor.$shadow-dark, inset -4px -4px 6px mixinColor.$shadow-light;
+    text-align: center;
+    position: relative;
+    width: 100%;
+  
+    .title {
+      color: mixinColor.$primary-color;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+  
+    // Contenedor que tiene lo que seria carrusel y los botones botones
+    .carousel-container {
+      position: relative;
+      width: 75vw; 
+      max-width: 100%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    // Carrusel de los videos nada mas
+    .video-carousel {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      padding: 1rem;
+      scroll-behavior: smooth;
+      white-space: nowrap;
+      width: 100vw;
+      margin: auto;
+  
+      &::-webkit-scrollbar {
+        display: none;
+      }
+  
+      .video-card {
+        flex: 0 0 auto;
+        width: 300px;
+        background: mixinColor.$light-background;
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 6px 6px 12px mixinColor.$shadow-dark, -6px -6px 12px mixinColor.$shadow-light;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 8px 8px 16px mixinColor.$shadow-dark, -8px -8px 16px mixinColor.$shadow-light;
+        }
+      
+        &:active {
+          transform: scale(0.95);
+          box-shadow: inset 6px 6px 10px mixinColor.$shadow-dark, inset -6px -6px 10px mixinColor.$shadow-light;
+        }
+      }
+      
+    }
+  
+    // Botones para pasar los videos
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: mixinColor.$bg-color;
+      color: mixinColor.$primary-color;
+      border: none;
+      cursor: pointer;
+      font-size: 2rem;
+      padding: 0.5rem;
+      border-radius: 50%;
+      box-shadow: 4px 4px 8px mixinColor.$shadow-dark, -4px -4px 8px mixinColor.$shadow-light;
+      transition: all 0.3s;
+      z-index: 200; // se usa para que se vea sobre el carusel
+  
+      &:hover {
+        transform: translateY(-50%) scale(1.1);
+      }
+    }
+  
+    .prev {
+      left: 10px; 
+    }
+  
+    .next {
+      right: 10px; 
+    }
+  }

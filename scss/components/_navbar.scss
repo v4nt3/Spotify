@@ -1,0 +1,41 @@
+@use "./mixinColor";
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background: mixinColor.$background-color;
+  
+    .navbar-brand img {
+      max-height: 40px;
+    }
+  
+    .search-container {
+        background: mixinColor.$light-background;
+        padding: 8px 12px;
+        display: flex;
+        align-items: center;
+        border-radius: 25px;
+        border-color:none;
+        box-shadow: inset 4px 4px 6px mixinColor.$shadow-dark, inset -4px -4px 6px mixinColor.$shadow-light;
+        transition: box-shadow 0.3s ease-in-out;
+    
+      input {
+        border: none;
+        outline: none;
+        border-color:none;
+        background: transparent;
+        width: 200px;
+        color: mixinColor.$text-color;
+        padding: 5px;
+        font-size: 1rem;
+      }
+
+      i{
+        color: mixinColor.$primary-color;
+        justify-content: center;
+      }
+    }
+    
+  }

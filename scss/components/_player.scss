@@ -1,0 +1,97 @@
+@use "./mixinColor";
+
+.player-section {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 800px;
+    z-index: 1000;
+  
+    .player-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: mixinColor.$light-background;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 5px 5px 15px mixinColor.$shadow-dark, -5px -5px 15px mixinColor.$shadow-light;
+      
+      .song-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+  
+        .song-cover {
+          width: 55px;
+          height: 55px;
+          border-radius: 10px;
+          box-shadow: inset 4px 4px 6px mixinColor.$shadow-dark, inset -4px -4px 6px mixinColor.$shadow-light;
+        }
+  
+        .song-details {
+          .song-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 2px mixinColor.$shadow-dark;
+          }
+          .song-artist {
+            font-size: 12px;
+            color: #aaa;
+          }
+        }
+      }
+  
+      .player-controls {
+        display: flex;
+        gap: 15px;
+  
+        button {
+          background: mixinColor.$light-background;
+          border: none;
+          color: mixinColor.$text-color;
+          font-size: 16px;
+          padding: 12px 18px;
+          border-radius: mixinColor.$box-radius;
+          box-shadow: 4px 4px 6px mixinColor.$shadow-dark, -4px -4px 6px mixinColor.$shadow-light;
+          transition: all 0.3s ease-in-out;
+        
+          &:hover {
+            box-shadow: inset 4px 4px 6px mixinColor.$shadow-dark, inset -4px -4px 6px mixinColor.$shadow-light;
+          }
+        
+          &:active {
+            transform: scale(0.98);
+            box-shadow: inset 6px 6px 8px mixinColor.$shadow-dark, inset -6px -6px 8px mixinColor.$shadow-light;
+          }
+        }
+        
+      }
+  
+      .player-progress,
+      .player-volume {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+  
+        input[type="range"] {
+          appearance: none;
+          height: 5px;
+          border-radius: 10px;
+          box-shadow: inset 2px 2px 5px mixinColor.$shadow-dark, inset -2px -2px 5px mixinColor.$shadow-light;
+          cursor: pointer;
+          
+          &::-webkit-slider-thumb {
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: white;
+            box-shadow: 2px 2px 6px mixinColor.$shadow-dark, -2px -2px 6px mixinColor.$shadow-light;
+          }
+        }
+      }
+    }
+  }
