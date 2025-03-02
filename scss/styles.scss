@@ -1,0 +1,333 @@
+@use "../node_modules/bulma/bulma.scss";
+@use "sass:map";
+
+$primary-color: #1DB954; 
+$background-color: #181818; 
+$light-background: #202020; 
+$text-color: #e0e0e0; 
+$highlight-color: #1ed760; 
+$shadow-dark: rgba(0, 0, 0, 0.6);
+$shadow-light: rgba(255, 255, 255, 0.08);
+$box-radius: 12px;
+
+@mixin neumorphism($color: $light-background, $intensity: 10px) {
+  background: $color;
+  border-radius: $box-radius;
+  box-shadow:
+    $intensity $intensity ($intensity * 2) $shadow-dark,
+    (-$intensity) (-$intensity) ($intensity * 2) $shadow-light;
+}
+
+ body {
+  margin: 0;
+  padding: 0;
+  background-color: $background-color;
+  color: $text-color;
+  font-family: 'Open Sans', sans-serif;
+}
+
+a {
+  color: $text-color;
+  text-decoration: none;
+  transition: color 0.3s;
+  
+  &:hover {
+    color: $highlight-color;
+  }
+}
+
+//Navbar
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: $light-background;
+  border-radius: $box-radius;
+  @include neumorphism($light-background, 8px);
+
+  .navbar-brand img {
+    max-height: 40px;
+  }
+
+  .search-container {
+    display: flex;
+    align-items: center;
+    background: $background-color;
+    padding: 8px 12px;
+    border-radius: 25px;
+    box-shadow: inset 6px 6px 10px $shadow-dark, inset -6px -6px 10px $shadow-light;
+
+    input {
+      border: none;
+      outline: none;
+      background: transparent;
+      width: 200px;
+      color: $text-color;
+      padding: 5px;
+    }
+
+    i {
+      margin-left: 10px;
+      color: #bbb;
+    }
+  }
+}
+
+// Sidebar
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background: $light-background;
+  @include neumorphism($light-background, 10px);
+
+  .menu-list {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 10px;
+
+      a {
+        display: flex;
+        align-items: center;
+        padding: 12px;
+        border-radius: 8px;
+        transition: all 0.3s ease-in-out;
+        color: $text-color;
+        @include neumorphism($background-color, 6px);
+
+        i {
+          margin-right: 10px;
+        }
+
+        &:hover {
+          background: $highlight-color;
+          color: #000;
+        }
+      }
+    }
+  }
+}
+
+// Main 
+.main-content {
+  padding: 20px;
+
+  .top-bar {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+
+$primary-color: #00ff88;
+$bg-color: #121212;
+$shadow-light: rgba(255, 255, 255, 0.1);
+$shadow-dark: rgba(0, 0, 0, 0.9);
+
+.trending-section {
+  background: $bg-color;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 8px 8px 16px $shadow-dark, -8px -8px 16px $shadow-light;
+  text-align: center;
+  position: relative;
+  width: 100%;
+
+  .title {
+    color: $primary-color;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  // Contenedor que tiene lo que seria carrusel y los botones botones
+  .carousel-container {
+    position: relative;
+    width: 75vw; 
+    max-width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // Carrusel de los videos nada mas
+  .video-carousel {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding: 1rem;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    width: 100vw;
+    margin: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .video-card {
+      flex: 0 0 auto;
+      width: 300px;
+      background: $bg-color;
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: inset 8px 8px 16px $shadow-dark, inset -8px -8px 16px $shadow-light;
+      transition: transform 0.3s ease-in-out;
+      display: inline-block;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      video {
+        width: 100%;
+        height: 250px;
+        border-radius: 12px;
+        box-shadow: 4px 4px 8px $shadow-dark, -4px -4px 8px $shadow-light;
+      }
+    }
+  }
+
+  // Botones para pasar los videos
+  .nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: $bg-color;
+    color: $primary-color;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    box-shadow: 4px 4px 8px $shadow-dark, -4px -4px 8px $shadow-light;
+    transition: all 0.3s;
+    z-index: 200; // se usa para que se vea sobre el carusel
+
+    &:hover {
+      transform: translateY(-50%) scale(1.1);
+    }
+  }
+
+  .prev {
+    left: 10px; 
+  }
+
+  .next {
+    right: 10px; 
+  }
+}
+
+//aqui va lo del video con la letra
+  .content-section {
+    margin-top: 20px;
+
+    .content-box {
+      padding: 20px;
+      border-radius: 10px;
+      @include neumorphism($light-background, 8px);
+    }
+  }
+}
+
+
+// reproductor
+$background-color: #222;
+$primary-color: #333;
+$shadow-light: rgba(255, 255, 255, 0.2);
+$shadow-dark: rgba(0, 0, 0, 0.7);
+
+.player-section {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 800px;
+  z-index: 1000;
+
+  .player-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $primary-color;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 5px 5px 15px $shadow-dark, -5px -5px 15px $shadow-light;
+    
+    .song-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .song-cover {
+        width: 55px;
+        height: 55px;
+        border-radius: 10px;
+        box-shadow: inset 4px 4px 6px $shadow-dark, inset -4px -4px 6px $shadow-light;
+      }
+
+      .song-details {
+        .song-title {
+          font-size: 14px;
+          font-weight: bold;
+          color: white;
+          text-shadow: 1px 1px 2px $shadow-dark;
+        }
+        .song-artist {
+          font-size: 12px;
+          color: #aaa;
+        }
+      }
+    }
+
+    .player-controls {
+      display: flex;
+      gap: 15px;
+
+      button {
+        background: $primary-color;
+        border: none;
+        color: white;
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 50%;
+        box-shadow: 3px 3px 8px $shadow-dark, -3px -3px 8px $shadow-light;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          box-shadow: inset 3px 3px 8px $shadow-dark, inset -3px -3px 8px $shadow-light;
+        }
+      }
+    }
+
+    .player-progress,
+    .player-volume {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      input[type="range"] {
+        appearance: none;
+        height: 5px;
+        border-radius: 10px;
+        box-shadow: inset 2px 2px 5px $shadow-dark, inset -2px -2px 5px $shadow-light;
+        cursor: pointer;
+        
+        &::-webkit-slider-thumb {
+          appearance: none;
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          background: white;
+          box-shadow: 2px 2px 6px $shadow-dark, -2px -2px 6px $shadow-light;
+        }
+      }
+    }
+  }
+}
