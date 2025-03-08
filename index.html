@@ -79,22 +79,6 @@
         <div class="carousel-container">
           <button class="nav-button prev">&#9664;</button>
           <div class="video-carousel">
-            <div class="video-card">
-              <img src="./img/epic.webp">
-            </div>
-            <div class="video-card">
-              <img src="./img/epic.webp">
-            </div>
-            <div class="video-card">
-              <img src="./img/epic.webp">
-            </div>
-            <div class="video-card">
-              <img src="./img/epic.webp">
-            </div>
-            <div class="video-card">
-              <img src="./img/epic.webp">
-            </div>
-          </div>
           <button class="nav-button next">&#9654;</button>
         </div>
       </section>
@@ -102,7 +86,7 @@
 
       <section class="section content-section">
         <div class="box content-box">
-          <p>video con letra, maybe</p>
+          <div id="video-player"></div>
         </div>
       </section>
             
@@ -176,9 +160,10 @@
     </main>
   </div>
 
-
   
+  <script src="https://www.youtube.com/iframe_api"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="./js/index.js"></script> 
 </body>
+<script src="js/Api_youtube.js"></script>
 </html>
