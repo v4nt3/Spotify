@@ -1,0 +1,73 @@
+@use "./mixinColor";
+
+.custom-footer {
+    background: mixinColor.$bg-color;
+    color: mixinColor.$text-color;
+    padding: 2rem 0;
+    text-align: center;
+
+    .title {
+        color: mixinColor.$primary-color;
+        font-size: clamp(1.5rem, 2.5vw, 2rem);
+    }
+
+    a {
+        color: mixinColor.$highlight-color;
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+
+        &:hover {
+            color: mixinColor.$highlight-color;
+        }
+    }
+
+    .social-button {
+        border-radius: 70%;
+        @include mixinColor.neumorphism(mixinColor.$light-background, 6px);
+        padding: 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        transition: transform 0.3s ease-in-out;
+        margin: 0.5rem;
+
+        &:hover {
+            transform: scale(1.1);
+            background: mixinColor.$highlight-color;
+            color: #000;
+            box-shadow: inset 4px 4px 8px mixinColor.$shadow-dark, inset -4px -4px 8px mixinColor.$shadow-light;
+        }
+    }
+
+    .copyright {
+        margin-top: 1rem;
+        font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+        color: mixinColor.$text-color;
+    }
+
+    /* Estilos responsivos */
+    @media (max-width: 768px) {
+        padding: 1rem 0;
+
+        .social-button {
+            font-size: 1.2rem;
+            padding: 8px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .social-button {
+            font-size: 1rem;
+            padding: 6px;
+        }
+
+        .title {
+            font-size: 1.2rem;
+        }
+
+        .copyright {
+            font-size: 0.7rem;
+        }
+    }
+}

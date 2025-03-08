@@ -23,3 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   carousel.addEventListener("scroll", checkButtonsVisibility);
   checkButtonsVisibility();
 });
+
+
+
+

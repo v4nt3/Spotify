@@ -1,95 +1,146 @@
 @use "./mixinColor";
 
 .trending-section {
-    background: mixinColor.$bg-color;
     padding: 2rem;
     border-radius: 12px;
-    box-shadow: inset 4px 4px 6px mixinColor.$shadow-dark, inset -4px -4px 6px mixinColor.$shadow-light;
     text-align: center;
     position: relative;
     width: 100%;
-  
+
     .title {
-      color: mixinColor.$primary-color;
-      font-size: 2rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
+        color: mixinColor.$primary-color;
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        font-weight: bold;
+        margin-bottom: 1rem;
     }
-  
-    // Contenedor que tiene lo que seria carrusel y los botones botones
+
+    // Contenedor del carrusel
     .carousel-container {
-      position: relative;
-      width: 75vw; 
-      max-width: 100%;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+        position: relative;
+        width: 75vw;
+        max-width: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-  
-    // Carrusel de los videos nada mas
+
+    // Carrusel de los videos
     .video-carousel {
-      display: flex;
-      gap: 1.5rem;
-      overflow-x: auto;
-      padding: 1rem;
-      scroll-behavior: smooth;
-      white-space: nowrap;
-      width: 100vw;
-      margin: auto;
-  
-      &::-webkit-scrollbar {
-        display: none;
-      }
-  
-      .video-card {
-        flex: 0 0 auto;
-        width: 300px;
-        background: mixinColor.$light-background;
-        padding: 15px;
-        border-radius: 12px;
-        box-shadow: 6px 6px 12px mixinColor.$shadow-dark, -6px -6px 12px mixinColor.$shadow-light;
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-      
-        &:hover {
-          transform: translateY(-5px);
-          box-shadow: 8px 8px 16px mixinColor.$shadow-dark, -8px -8px 16px mixinColor.$shadow-light;
+        display: flex;
+        gap: 1.5rem;
+        overflow-x: auto;
+        padding: 1rem;
+        scroll-behavior: smooth;
+        white-space: nowrap;
+        width: 100%;
+        margin: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
         }
-      
-        &:active {
-          transform: scale(0.95);
-          box-shadow: inset 6px 6px 10px mixinColor.$shadow-dark, inset -6px -6px 10px mixinColor.$shadow-light;
+
+        .video-card {
+            flex: 0 0 auto;
+            width: clamp(220px, 30vw, 300px);
+            background: mixinColor.$light-background;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 6px 6px 12px mixinColor.$shadow-dark, -6px -6px 12px mixinColor.$shadow-light;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 8px 8px 16px mixinColor.$shadow-dark, -8px -8px 16px mixinColor.$shadow-light;
+            }
+
+            &:active {
+                transform: scale(0.95);
+                box-shadow: inset 6px 6px 10px mixinColor.$shadow-dark, inset -6px -6px 10px mixinColor.$shadow-light;
+            }
         }
-      }
-      
     }
-  
-    // Botones para pasar los videos
+
+    // Botones de navegación
     .nav-button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: mixinColor.$bg-color;
-      color: mixinColor.$primary-color;
-      border: none;
-      cursor: pointer;
-      font-size: 2rem;
-      padding: 0.5rem;
-      border-radius: 50%;
-      box-shadow: 4px 4px 8px mixinColor.$shadow-dark, -4px -4px 8px mixinColor.$shadow-light;
-      transition: all 0.3s;
-      z-index: 200; // se usa para que se vea sobre el carusel
-  
-      &:hover {
-        transform: translateY(-50%) scale(1.1);
-      }
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: mixinColor.$bg-color;
+        color: mixinColor.$primary-color;
+        border: none;
+        cursor: pointer;
+        font-size: 2rem;
+        padding: 0.5rem;
+        border-radius: 50%;
+        box-shadow: 4px 4px 8px mixinColor.$shadow-dark, -4px -4px 8px mixinColor.$shadow-light;
+        transition: all 0.3s;
+        z-index: 200;
+
+        &:hover {
+            transform: translateY(-50%) scale(1.1);
+        }
     }
-  
+
     .prev {
-      left: 10px; 
+        left: 10px;
     }
-  
+
     .next {
-      right: 10px; 
+        right: 10px;
     }
-  }
+
+    /* Responsividad */
+    @media (max-width: 1024px) {
+        .carousel-container {
+            width: 90vw;
+        }
+
+        .video-carousel {
+            gap: 1rem;
+            padding: 0.5rem;
+        }
+
+        .video-card {
+            width: 250px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .carousel-container {
+            width: 95vw;
+        }
+
+        .video-carousel {
+            gap: 0.8rem;
+        }
+
+        .video-card {
+            width: 220px;
+        }
+
+        .nav-button {
+            font-size: 1.5rem;
+            padding: 0.3rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .carousel-container {
+            width: 100%;
+        }
+
+        .video-carousel {
+            gap: 0.5rem;
+            padding: 0.2rem;
+        }
+
+        .video-card {
+            width: 180px;
+        }
+
+        .nav-button {
+            display: none; // Ocultamos los botones en móviles para usar swipe
+        }
+    }
+}

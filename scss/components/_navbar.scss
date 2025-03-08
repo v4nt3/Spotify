@@ -5,37 +5,72 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px 20px;
-    background: mixinColor.$background-color;
-  
+    background: mixinColor.$bg-color;
+    box-shadow: 0 4px 6px mixinColor.$shadow-dark;
+
     .navbar-brand img {
-      max-height: 40px;
+        max-height: 40px;
     }
-  
+
     .search-container {
         background: mixinColor.$light-background;
         padding: 8px 12px;
         display: flex;
         align-items: center;
         border-radius: 25px;
-        border-color:none;
         box-shadow: inset 4px 4px 6px mixinColor.$shadow-dark, inset -4px -4px 6px mixinColor.$shadow-light;
         transition: box-shadow 0.3s ease-in-out;
-    
-      input {
-        border: none;
-        outline: none;
-        border-color:none;
-        background: transparent;
-        width: 200px;
-        color: mixinColor.$text-color;
-        padding: 5px;
-        font-size: 1rem;
-      }
 
-      i{
-        color: mixinColor.$primary-color;
-        justify-content: center;
-      }
+        input {
+            border: none;
+            outline: none;
+            background: transparent;
+            width: clamp(150px, 20vw, 200px);
+            color: mixinColor.$text-color;
+            padding: 5px;
+            font-size: 1rem;
+        }
+
+        i {
+            color: mixinColor.$primary-color;
+            font-size: 1.2rem;
+            margin-left: 8px;
+        }
     }
-    
-  }
+
+    /* Responsividad */
+    @media (max-width: 768px) {
+        padding: 10px 15px;
+
+        .navbar-brand img {
+            max-height: 35px;
+        }
+
+        .search-container {
+            padding: 6px 10px;
+
+            input {
+                width: 140px;
+                font-size: 0.9rem;
+            }
+
+            i {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        flex-direction: column;
+        gap: 10px;
+
+        .navbar-brand img {
+            max-height: 30px;
+        }
+
+        .search-container {
+            width: 90%;
+            justify-content: space-between;
+        }
+    }
+}

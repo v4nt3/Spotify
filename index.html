@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spotify SeVa</title>
-  <link rel="icon" type="png" href="./img/spotifyVerde.png">
+  <link rel="icon" type="png" href="./img/icono.png">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
@@ -17,7 +17,7 @@
   <div class="navbar-brand">
     <a class="navbar-item" href="#">
       <img
-        src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg"
+        src="./img/logo.png"
         alt="Spotify Logo"
       />
     </a>
@@ -40,6 +40,10 @@
 
   <div class="columns is-gapless main-layout">
 
+    <button class="menu-toggle">
+      <i class="fas fa-bars"></i>
+  </button>
+
     <aside class="column is-one-fifth sidebar">
       <div class="sidebar-content">
         
@@ -55,9 +59,18 @@
             <li><a href="#"><i class="fas fa-cog"></i> Configuración</a></li>
           </ul>
         </nav>
+
+        <div class="sound-wave">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        
+        <div id="particle-container"></div>
+
         
       </div>
     </aside>
+
+    <div class="overlay"></div>
 
     <main class="column main-content">
 
@@ -93,39 +106,76 @@
         </div>
       </section>
             
-      <section class="player-section">
-        <div class="player-container box">
-          <div class="song-info">
-            <img src="./img/epic.webp" alt="Portada" class="song-cover">
-            <div class="song-details">
-              <p class="song-title">Love Paradise</p>
-              <p class="song-artist">Jorge Rivera</p>
+     
+
+      <section class="song-section">
+        <h2 class="title">Canciones Destacadas</h2>
+        <div class="song-container">
+            <div class="song">
+                <img src="img/cyclops.jpg" alt="Canción 1">
+                <p>Cycplos saga - 1</p>
             </div>
-          </div>
-
-          <!-- Controles -->
-          <div class="player-controls">
-            <button id="prev"><i class="fas fa-step-backward"></i></button>
-            <button id="play"><i class="fas fa-play"></i></button>
-            <button id="next"><i class="fas fa-step-forward"></i></button>
-          </div>
-
-          <!-- Barra de progreso y volumen -->
-          <div class="player-progress">
-            <span id="current-time">00:50</span>
-            <input type="range" id="progress-bar" min="0" max="161" value="50">
-            <span id="total-time">02:41</span>
-          </div>
-
-          <div class="player-volume">
-            <i class="fas fa-volume-up"></i>
-            <input type="range" id="volume-bar" min="0" max="100" value="50">
+            <div class="song">
+                <img src="img/ithaca.webp" alt="Canción 2">
+                <p>Ithaca saga - 1</p>
+            </div>
+            <div class="song">
+                <img src="img/ocean.jpg" alt="Canción 3">
+                <p>Ocean saga - 1</p>
+            </div>
+            <div class="song">
+                <img src="img/thunder.jpg" alt="Canción 4">
+                <p>Thunder saga - 1</p>
+            </div>
+            <div class="song">
+                <img src="img/troy.jpeg" alt="Canción 5">
+                <p>Troy saga - 1</p>
+            </div>
+            <div class="song">
+              <img src="img/wisdom.jpeg" alt="Canción 5">
+              <p>Wisdom saga - 1</p>
           </div>
         </div>
-      </section>
-
+    </section>
+    
+    
+    <footer class="footer custom-footer">
+      <div class="container">
+          <div class="columns">
+              <!-- Sección 1: Sobre Nosotros -->
+              <div class="column">
+                  <h3 class="title is-5">Sobre Nosotros</h3>
+                  <p>Tu plataforma favorita para descubrir y disfrutar música.</p>
+              </div>
+  
+              <!-- Sección 2: Enlaces -->
+              <div class="column">
+                  <h3 class="title is-5">Enlaces</h3>
+                  <ul>
+                      <li><a href="#">Inicio</a></li>
+                      <li><a href="#">Tendencias</a></li>
+                      <li><a href="#">Explorar</a></li>
+                      <li><a href="#">Contacto</a></li>
+                  </ul>
+              </div>
+  
+              <!-- Sección 3: Redes Sociales -->
+              <div class="column">
+                  <h3 class="title is-5">Síguenos</h3>
+                  <div class="buttons">
+                      <a class="button social-button" href="#"><i class="fab fa-facebook"></i></a>
+                      <a class="button social-button" href="#"><i class="fab fa-twitter"></i></a>
+                      <a class="button social-button" href="#"><i class="fab fa-instagram"></i></a>
+                      <a class="button social-button" href="#"><i class="fab fa-youtube"></i></a>
+                  </div>
+              </div>
+          </div>
+          <p class="has-text-centered copyright">© 2024 Tu Plataforma Musical. Todos los derechos reservados.</p>
+      </div>
+  </footer>
     </main>
   </div>
+
 
   
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

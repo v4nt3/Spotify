@@ -1,10 +1,11 @@
 @use "./mixinColor";
 
+
 .player-section {
     position: fixed;
     bottom: 20px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-35%);
     width: 90%;
     max-width: 800px;
     z-index: 1000;
