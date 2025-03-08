@@ -25,5 +25,28 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+document.addEventListener("DOMContentLoaded", () => {
+  const carousel = document.querySelector(".song-carousel");
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
+
+  nextBtn.addEventListener("click", () => {
+      carousel.scrollBy({ left: 250, behavior: "smooth" });
+  });
+
+  prevBtn.addEventListener("click", () => {
+      carousel.scrollBy({ left: -250, behavior: "smooth" });
+  });
+
+  function checkButtonsVisibility() {
+    const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+    prevBtn.style.display = carousel.scrollLeft > 0 ? "block" : "none";
+    nextBtn.style.display = carousel.scrollLeft < maxScrollLeft ? "block" : "none";
+  }
+
+  carousel.addEventListener("scroll", checkButtonsVisibility);
+  checkButtonsVisibility();
+});
+
 
 
