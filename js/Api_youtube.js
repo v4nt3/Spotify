@@ -47,7 +47,7 @@ async function loadVideos() {
       playlistContainer.innerHTML = "";
 
       videos.forEach(video => {
-          // 🎵 Playlist (lado derecho)
+          
           const playlistItem = document.createElement("li");
           playlistItem.innerHTML = `
               <img src="https://img.youtube.com/vi/${video.id}/0.jpg" alt="${video.title}">
@@ -57,7 +57,6 @@ async function loadVideos() {
 
           playlistContainer.appendChild(playlistItem);
 
-          // 🎥 Carrusel (abajo)
           const videoCar = document.createElement("div");
           videoCar.className = "video-card";
           
