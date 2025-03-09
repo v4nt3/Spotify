@@ -3,7 +3,7 @@ let player;
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('video-player', {
       height: '360',
-      width: '640',
+      width: '550',
       videoId: '', // No carga video inicialmente
       events: {
         'onReady': onPlayerReady
@@ -13,6 +13,7 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerReady(event) {
     console.log("Reproductor listo");
+    event.Player.playVideo();
   }
 
 function changeVideo(videoId) {
@@ -21,11 +22,22 @@ function changeVideo(videoId) {
     } else {
       player = new YT.Player('video-player', {
         height: '360',
-        width: '640',
+        width: '550',
         videoId: videoId
       });
     }
   }
+function resizePlayer() {
+    let container = document.querySelector(".video-container");
+    if (container) {
+        let width = container.offsetWidth;
+        let height = width * (9 / 16); // Mantiene la relación 16:9
+        player.setSize(width, height);
+    }
+}
+
+
+
 console.log("✅ El script JavaScript se está ejecutando correctamente.");
 async function loadVideos() {
     console.log("Cargando videos...");

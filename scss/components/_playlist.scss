@@ -1,58 +1,57 @@
 @use "./mixinColor";
 
 .content-section {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    justify-content: center;
-    
-
+  display: flex;
+  flex-wrap: wrap; // Permite que los elementos se acomoden en móviles
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px;
 
   .content-box {
-      flex: 2;
-      max-width: 51%;
-      width: 50px;
-      @include mixinColor.neumorphism(mixinColor.$light-background, 3px);  
-      border-radius: mixinColor.$box-radius;
-      box-shadow: inset 4px 4px 6px mixinColor.$shadow-dark, inset -4px -4px 6px mixinColor.$shadow-light;
-      
+    flex: 2;
+    max-width: min(55%, 600px); // Controla el ancho en pantallas grandes
+    width: 100%;
+    @include mixinColor.neumorphism(mixinColor.$light-background, 3px);
+    border-radius: mixinColor.$box-radius;
+    box-shadow: inset 4px 4px 6px mixinColor.$shadow-dark, inset -4px -4px 6px mixinColor.$shadow-light;
+    padding: 20px;
     
-      &:active {
-        transform: scale(0.98);
-        box-shadow: inset 6px 6px 8px mixinColor.$shadow-dark, inset -6px -6px 8px mixinColor.$shadow-light;
-      }
+    &:active {
+      transform: scale(0.98);
+      box-shadow: inset 6px 6px 8px mixinColor.$shadow-dark, inset -6px -6px 8px mixinColor.$shadow-light;
+    }
   }
 
   .playlist {
-      flex: 1;
-      max-width: 30%;
-      padding: 15px;
-      border-radius: 8px;
-      color: white;
-      overflow-y: auto;
-      max-height: 400px; // Controla el tamaño máximo de la playlist
-      @include mixinColor.neumorphism(mixinColor.$light-background, 3px);  
-      border-radius: mixinColor.$box-radius;
-      
-  }
+    flex: 1;
+    max-width: min(40%, 400px);
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+    overflow-y: auto;
+    max-height: 400px; // Mantiene la altura controlada
+    @include mixinColor.neumorphism(mixinColor.$light-background, 3px);
+    border-radius: mixinColor.$box-radius;
 
-  .playlist::-webkit-scrollbar {
-    display: none; // Oculta la barra en Chrome, Edge y Safari
-  }
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
-  .playlist h3 {
-    color: mixinColor.$primary-color;
-    font-size: 18px;
-    font-weight: bold;
+    h3 {
+      color: mixinColor.$primary-color;
+      font-size: 18px;
+      font-weight: bold;
       margin-bottom: 10px;
-  }
+    }
 
-  .playlist ul {
+    ul {
       list-style: none;
-      padding: 0;   
-  }
+      padding: 0;
+    }
 
-  .playlist li {
+    li {
       display: flex;
       align-items: center;
       gap: 10px;
@@ -60,22 +59,43 @@
       cursor: pointer;
       transition: background 0.3s;
       border-radius: mixinColor.$box-radius;
-        
-          &:hover {
-            box-shadow: inset 4px 4px 6px mixinColor.$shadow-dark, inset -4px -4px 6px mixinColor.$shadow-light;
-          }
-        
-          &:active {
-            transform: scale(0.98);
-            box-shadow: inset 6px 6px 8px mixinColor.$shadow-dark, inset -6px -6px 8px mixinColor.$shadow-light;
-          }
+
+      &:hover {
+        box-shadow: inset 4px 4px 6px mixinColor.$shadow-dark, inset -4px -4px 6px mixinColor.$shadow-light;
+      }
+
+      &:active {
+        transform: scale(0.98);
+        box-shadow: inset 6px 6px 8px mixinColor.$shadow-dark, inset -6px -6px 8px mixinColor.$shadow-light;
+      }
+
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+/* 🔹 Responsividad */
+@media (max-width: 1024px) {
+  .content-section {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .playlist li img {
-      width: 50px;
-      height: 50px;
-      border-radius: 5px;
+  .content-box {
+    max-width: 80%;
   }
 
+  .playlist {
+    max-width: 80%;
+  }
+}
 
+@media (max-width: 768px) {
+  .content-box, .playlist {
+    max-width: 100%;
+  }
 }

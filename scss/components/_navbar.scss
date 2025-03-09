@@ -1,6 +1,7 @@
 @use "./mixinColor";
 
 .navbar {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 12px 20px;
@@ -8,8 +9,9 @@
     box-shadow: 0 4px 6px mixinColor.$shadow-dark;
     height: 100px;
     position: fixed;
-    width: 99%;
-    display: flex;
+    width: 100%;
+    left: 0;
+    top: 0;
     @include mixinColor.neumorphism(mixinColor.$bg-color, 3px);
 
     .navbar-brand img {
@@ -29,7 +31,7 @@
             border: none;
             outline: none;
             background: transparent;
-            width: clamp(150px, 20vw, 200px);
+            width: min(200px, 25vw);
             color: mixinColor.$text-color;
             padding: 5px;
             font-size: 1rem;
@@ -66,18 +68,21 @@
 
     @media (max-width: 480px) {
         flex-direction: column;
-        align-items: center; // Centra elementos en columnas
+        align-items: center;
         gap: 10px;
-        height: auto; // Permite que la navbar se expanda si es necesario
-        padding: 10px;
+        height: auto; // Se ajusta mejor
+        padding: 12px;
+        flex-wrap: wrap;
 
         .navbar-brand img {
             max-height: 30px;
         }
 
         .search-container {
-            width: 90%;
+            width: 100%;
+            max-width: 300px;
             justify-content: space-between;
+            padding: 8px;
         }
     }
 }
