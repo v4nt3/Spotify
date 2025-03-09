@@ -21613,7 +21613,7 @@ has-background-danger.is-hoverable:active {
   transform: scale(0.95);
   box-shadow: inset 6px 6px 10px rgba(15, 15, 30, 0.6), inset -6px -6px 10px rgba(90, 120, 255, 0.2);
 }
-.trending-section .carousel-btn {
+.trending-section .nav-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -21628,20 +21628,12 @@ has-background-danger.is-hoverable:active {
   border-radius: 16px;
   box-shadow: 3px 3px 4.5px rgba(15, 15, 30, 0.6), -3px -3px 4.5px rgba(90, 120, 255, 0.2);
 }
-<<<<<<< HEAD
-.trending-section .carousel-btn:hover {
-=======
 .trending-section .nav-button:hover {
->>>>>>> 79423d7 (CorrecionCarousel)
   background: #18b6ff;
   color: #000;
   box-shadow: inset 4px 4px 8px rgba(15, 15, 30, 0.6), inset -4px -4px 8px rgba(90, 120, 255, 0.2);
 }
-<<<<<<< HEAD
-.trending-section .carousel-btn:active {
-=======
 .trending-section .nav-button:active {
->>>>>>> 79423d7 (CorrecionCarousel)
   box-shadow: inset 6px 6px 12px rgba(15, 15, 30, 0.6), inset -6px -6px 12px rgba(90, 120, 255, 0.2);
 }
 .trending-section .video-prev {
