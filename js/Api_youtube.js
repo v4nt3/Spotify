@@ -26,14 +26,15 @@ function changeVideo(videoId) {
       });
     }
   }
-console.log("✅ El script JavaScript se está ejecutando correctamente.");
+
+//console.log("✅ El script JavaScript se está ejecutando correctamente.");
 async function loadVideos() {
-    console.log("Cargando videos...");
+    //console.log("Cargando videos...");
     try {
         // Cargar la lista de videos desde el json
         const response = await fetch("js/videos.json");
         const videos = await response.json();
-        console.log(videos);
+        //console.log(videos);
 
         // crear el carrusel de videos
         const carousel = document.querySelector(".video-carousel");
