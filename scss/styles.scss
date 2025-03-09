@@ -3,19 +3,20 @@
 
 @use "./components/carousel";
 @use "./components/navbar";
-@use "./components/player";
 @use "./components/sidebar";
 @use "./components/mixinColor";
 @use "./components/songs";
 @use "./components/footer";
+@use "./components/player";
+@use "./components/playlist";
 
 
  body {
-  margin: 0;
-  padding: 0;
-  background-color: mixinColor.$background-color;
-  color: mixinColor.$text-color;
-  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: mixinColor.$light-background;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 a {
@@ -28,27 +29,41 @@ a {
   }
 }
 
+main {
+  position: relative;  
+  margin-top: 110px;  
+  margin-left: 400px; 
 
-.main-content {
-  max-width: 1500px;
-  margin: auto;
-  padding: 1rem;
-  
-  
+  @include mixinColor.neumorphism(mixinColor.$bg-color, 3px);
+  padding: 20px;
+  transition: margin-left 0.3s ease; 
 
-  .top-bar {
-    padding: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
+  .main-content {
+    min-height: 100%; 
+    overflow-y: auto;
+    padding: 10px;
+    scrollbar-width: none;
 
-  .content-section {
-    margin-top: 20px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
-    .content-box {
-      padding: 20px;
-      border-radius: 10px;
-      @include mixinColor.neumorphism(mixinColor.$light-background, 8px);
+    .top-bar {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
   }
-}
 
+  /*RESPONSIVIDAD */
+  @media (max-width: 1024px) {
+    margin-left: 250px; //Sidebar más pequeño en tablets
+    width: calc(100% - 250px);
+  }
+
+  @media (max-width: 768px) {
+    margin-left: 0; // Sidebar oculto o sobrepuesto en móviles
+    width: 100%;
+  }
+
+
+}

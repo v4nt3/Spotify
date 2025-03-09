@@ -27,6 +27,7 @@ function changeVideo(videoId) {
     }
   }
 console.log("✅ El script JavaScript se está ejecutando correctamente.");
+
 async function loadVideos() {
   console.log("Cargando videos...");
   try {
@@ -34,22 +35,32 @@ async function loadVideos() {
       const videos = await response.json();
       console.log(videos);
 
-      // Buscar el carrusel
       const carousel = document.querySelector(".video-carousel");
+      const playlistContainer = document.getElementById("playlist-container");
 
-      if (!carousel) {
-          console.error("⚠ No se encontró el carrusel de videos en el DOM.");
+      if (!carousel || !playlistContainer) {
+          console.error("⚠ No se encontró el contenedor del carrusel o la playlist.");
           return;
       }
 
-      // Limpiar contenido previo
       carousel.innerHTML = "";
+      playlistContainer.innerHTML = "";
 
-      // Agregar videos al carrusel
       videos.forEach(video => {
+          // 🎵 Playlist (lado derecho)
+          const playlistItem = document.createElement("li");
+          playlistItem.innerHTML = `
+              <img src="https://img.youtube.com/vi/${video.id}/0.jpg" alt="${video.title}">
+              <span>${video.title}</span>
+          `;
+          playlistItem.onclick = () => changeVideo(video.id);
+
+          playlistContainer.appendChild(playlistItem);
+
+          // 🎥 Carrusel (abajo)
           const videoCar = document.createElement("div");
           videoCar.className = "video-card";
-
+          
           const img = document.createElement("img");
           img.src = `https://img.youtube.com/vi/${video.id}/0.jpg`;
           img.alt = video.title;
@@ -59,17 +70,16 @@ async function loadVideos() {
           carousel.appendChild(videoCar);
       });
 
-      // Asegurar que los botones de navegación aparezcan
       document.querySelector(".video-prev").style.display = "block";
       document.querySelector(".video-next").style.display = "block";
 
-      // 🚀 Una vez cargados los videos, inicializar los eventos del carrusel
       setupVideoCarousel();
 
   } catch (error) {
       console.error("Error al cargar los videos", error);
   }
 }
+
 
 function setupVideoCarousel() {
   const carousel = document.querySelector(".video-carousel");
