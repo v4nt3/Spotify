@@ -3,19 +3,20 @@
 
 @use "./components/carousel";
 @use "./components/navbar";
-@use "./components/player";
 @use "./components/sidebar";
 @use "./components/mixinColor";
 @use "./components/songs";
 @use "./components/footer";
+@use "./components/player";
+@use "./components/playlist";
 
 
  body {
-  margin: 0;
-  padding: 0;
-  background-color: mixinColor.$background-color;
-  color: mixinColor.$text-color;
-  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: mixinColor.$light-background;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 a {
@@ -28,27 +29,32 @@ a {
   }
 }
 
+main {
+  position: fixed; 
+  top: 120px; 
+  left: 400px; 
+  width: calc(91.5% - 250px); // Resta el ancho del sidebar
+  height: calc(92vh - 60px); // Resta la altura del navbar
+  
+  
+  @include mixinColor.neumorphism(mixinColor.$bg-color, 2.5px);
+  padding: 20px;
 
 .main-content {
-  max-width: 1500px;
-  margin: auto;
-  padding: 1rem;
+
+  height: 100%; // Ocupa toda la altura del main
+  overflow-y: auto; // Permite desplazamiento solo interno
+  padding: 10px;
+  scrollbar-width: none;
   
-  
+  .main-content::-webkit-scrollbar {
+    display: none; // Oculta la barra en Chrome, Edge y Safari
+  }
 
   .top-bar {
     padding: 1rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  .content-section {
-    margin-top: 20px;
-
-    .content-box {
-      padding: 20px;
-      border-radius: 10px;
-      @include mixinColor.neumorphism(mixinColor.$light-background, 8px);
-    }
-  }
 }
-
+}

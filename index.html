@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./css/styles.css" />
 </head>
 <body>
@@ -42,11 +43,10 @@
 
     <button class="menu-toggle">
       <i class="fas fa-bars"></i>
-  </button>
+    </button>
 
     <aside class="column is-one-fifth sidebar">
       <div class="sidebar-content">
-        
         <nav class="menu">
           <p class="menu-label">Navegación</p>
           <ul class="menu-list">
@@ -63,22 +63,21 @@
         <div class="sound-wave">
           <span></span><span></span><span></span><span></span><span></span>
         </div>
-        
-        <div id="particle-container"></div>
-
-        
       </div>
     </aside>
 
     <div class="overlay"></div>
 
-    <main class="column main-content">
+    <div class="main-container">
+
+    <main >
+    <div class="column main-content">
 
       <section class="trending-section">
         <h2 class="title">Tendencias</h2>
         <div class="carousel-container">
           <button class="nav-button prev">&#9664;</button>
-          <div class="video-carousel"></div>
+          <div class="video-carousel">
           <button class="nav-button next">&#9654;</button>
         </div>
       </section>
@@ -86,78 +85,129 @@
 
       <section class="section content-section">
         <div class="box content-box">
-          <div id="video-player"></div>
+            <div id="video-player"></div>
         </div>
-      </section>
-            
-     
-
-      <section class="song-section">
-        <h2 class="title">Canciones Destacadas</h2>
-        <div class="song-container">
-            <div class="song">
-                <img src="img/cyclops.jpg" alt="Canción 1">
-                <p>Cycplos saga - 1</p>
-            </div>
-            <div class="song">
-                <img src="img/ithaca.webp" alt="Canción 2">
-                <p>Ithaca saga - 1</p>
-            </div>
-            <div class="song">
-                <img src="img/ocean.jpg" alt="Canción 3">
-                <p>Ocean saga - 1</p>
-            </div>
-            <div class="song">
-                <img src="img/thunder.jpg" alt="Canción 4">
-                <p>Thunder saga - 1</p>
-            </div>
-            <div class="song">
-                <img src="img/troy.jpeg" alt="Canción 5">
-                <p>Troy saga - 1</p>
-            </div>
-            <div class="song">
-              <img src="img/wisdom.jpeg" alt="Canción 5">
-              <p>Wisdom saga - 1</p>
-          </div>
+        <div class="playlist">
+            <h3>Próximos Videos</h3>
+            <ul id="playlist-container"></ul>
         </div>
     </section>
     
-    
-    <footer class="footer custom-footer">
-      <div class="container">
-          <div class="columns">
-              <!-- Sección 1: Sobre Nosotros -->
-              <div class="column">
-                  <h3 class="title is-5">Sobre Nosotros</h3>
-                  <p>Tu plataforma favorita para descubrir y disfrutar música.</p>
-              </div>
-  
-              <!-- Sección 2: Enlaces -->
-              <div class="column">
-                  <h3 class="title is-5">Enlaces</h3>
-                  <ul>
-                      <li><a href="#">Inicio</a></li>
-                      <li><a href="#">Tendencias</a></li>
-                      <li><a href="#">Explorar</a></li>
-                      <li><a href="#">Contacto</a></li>
-                  </ul>
-              </div>
-  
-              <!-- Sección 3: Redes Sociales -->
-              <div class="column">
-                  <h3 class="title is-5">Síguenos</h3>
-                  <div class="buttons">
-                      <a class="button social-button" href="#"><i class="fab fa-facebook"></i></a>
-                      <a class="button social-button" href="#"><i class="fab fa-twitter"></i></a>
-                      <a class="button social-button" href="#"><i class="fab fa-instagram"></i></a>
-                      <a class="button social-button" href="#"><i class="fab fa-youtube"></i></a>
-                  </div>
-              </div>
+            
+      <section class="player-section">
+        <div class="player-container box">
+          <button id="close-player"><i class="fas fa-times"></i></button> 
+          <div class="song-info">
+            <img src="./img/epic.webp" alt="Portada" class="song-cover">
+            <div class="song-details">
+              <p class="song-title">Love Paradise</p>
+              <p class="song-artist">Jorge Rivera</p>
+            </div>
           </div>
-          <p class="has-text-centered copyright">© 2024 Tu Plataforma Musical. Todos los derechos reservados.</p>
-      </div>
-  </footer>
+
+          <!-- Controles -->
+          <div class="player-controls">
+            <button id="prev"><i class="fas fa-step-backward"></i></button>
+            <button id="play"><i class="fas fa-play"></i></button>
+            <button id="next"><i class="fas fa-step-forward"></i></button>
+          </div>
+
+          <!-- Barra de progreso y volumen -->
+          <div class="player-progress">
+            <span id="current-time">00:50</span>
+            <input type="range" id="progress-bar" min="0" max="161" value="50">
+            <span id="total-time">02:41</span>
+          </div>
+
+          <div class="player-volume">
+            <i class="fas fa-volume-up"></i>
+            <input type="range" id="volume-bar" min="0" max="100" value="50">
+          </div>
+        </div>
+      </section>
+     
+      <section class="song-section">
+        <h2 class="title">Canciones Destacadas</h2>
+        <button class="carousel-btn song-prev">&#10094;</button>
+        <div class="song-container">
+            <div class="song">
+                <img src="img/cyclops.jpg" alt="Canción 1">
+                <p>Cyclops saga</p>
+            </div>
+            <div class="song">
+                <img src="img/ithaca.webp" alt="Canción 2">
+                <p>Ithaca saga</p>
+            </div>
+            <div class="song">
+                <img src="img/ocean.jpg" alt="Canción 3">
+                <p>Ocean saga</p>
+            </div>
+            <div class="song">
+                <img src="img/thunder.jpg" alt="Canción 4">
+                <p>Thunder saga</p>
+            </div>
+            <div class="song">
+                <img src="img/troy.jpeg" alt="Canción 5">
+                <p>Troy saga</p>
+            </div>
+            <div class="song">
+                <img src="img/wisdom.jpeg" alt="Canción 6">
+                <p>Wisdom saga</p>
+            </div>
+              <div class="song">
+                <img src="img/circe.jpg" alt="Canción 8">
+                <p>Circe saga</p>
+            </div>
+            <div class="song">
+              <img src="img/vengeance.jpg" alt="Canción 8">
+              <p>Circe saga</p>
+            </div>
+            <div class="song">
+              <img src="img/underworld.jpeg" alt="Canción 8">
+              <p>Circe saga</p>
+            </div>
+        </div>
+        <button class="carousel-btn song-next">&#10095;</button>
+      </section>
+    
+      <footer class="footer custom-footer">
+        <div class="container">
+            <div class="columns">
+                <!-- Sección 1: Sobre Nosotros -->
+                <div class="column">
+                    <h3 class="title is-5">Sobre Nosotros</h3>
+                    <p>Tu plataforma favorita para descubrir y disfrutar música.</p>
+                </div>
+    
+                <!-- Sección 2: Enlaces -->
+                <div class="column">
+                    <h3 class="title is-5">Enlaces</h3>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Tendencias</a></li>
+                        <li><a href="#">Explorar</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Sección 3: Redes Sociales -->
+                <div class="column">
+                    <h3 class="title is-5">Síguenos</h3>
+                    <div class="buttons">
+                        <a class="button social-button" href="#"><i class="fab fa-facebook"></i></a>
+                        <a class="button social-button" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="button social-button" href="#"><i class="fab fa-instagram"></i></a>
+                        <a class="button social-button" href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p class="has-text-centered copyright">© 2024 Tu Plataforma Musical. Todos los derechos reservados.</p>
+        </div>
+      </footer>
+    </div>
     </main>
+
+  </div>
   </div>
 
   

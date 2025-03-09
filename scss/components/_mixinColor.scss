@@ -9,10 +9,13 @@ $box-radius: 16px;
 $bg-color: #0d0d0d;           
 
 
-@mixin neumorphism($color: $light-background, $intensity: 6px) {
+@mixin neumorphism($color: $light-background, $intensity: 6px, $inset: false) {
+  $blur: calc($intensity * 1.5); // Se evita error de cálculo
+  $shadow-type: if($inset, inset, ""); // Permite sombras internas opcionales
+
   background: $color;
   border-radius: $box-radius;
   box-shadow:
-    $intensity $intensity ($intensity * 1.5) $shadow-dark,
-    (-$intensity) (-$intensity) ($intensity * 1.5) $shadow-light;
+    #{$shadow-type} $intensity $intensity $blur $shadow-dark,
+    #{$shadow-type} (-$intensity) (-$intensity) $blur $shadow-light;
 }

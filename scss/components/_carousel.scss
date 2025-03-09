@@ -46,13 +46,15 @@
             background: mixinColor.$light-background;
             padding: 15px;
             border-radius: 12px;
-            box-shadow: 6px 6px 12px mixinColor.$shadow-dark, -6px -6px 12px mixinColor.$shadow-light;
+            @include mixinColor.neumorphism(mixinColor.$bg-color, 3px);
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
-            &:hover {
-                transform: translateY(-5px);
-                box-shadow: 8px 8px 16px mixinColor.$shadow-dark, -8px -8px 16px mixinColor.$shadow-light;
-            }
+           &:hover {
+            transform: translateY(-5px);
+            background: mixinColor.$bg-color;
+            color: #000;
+            box-shadow: inset 4px 4px 8px mixinColor.$shadow-dark, inset -4px -4px 8px mixinColor.$shadow-light;
+        }
 
             &:active {
                 transform: scale(0.95);
@@ -62,31 +64,35 @@
     }
 
     // Botones de navegación
-    .nav-button {
+    .carousel-btn {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        background: mixinColor.$bg-color;
-        color: mixinColor.$primary-color;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
         border: none;
+        padding: 10px;
         cursor: pointer;
-        font-size: 2rem;
-        padding: 0.5rem;
-        border-radius: 50%;
-        box-shadow: 4px 4px 8px mixinColor.$shadow-dark, -4px -4px 8px mixinColor.$shadow-light;
-        transition: all 0.3s;
-        z-index: 200;
+        z-index: 10;
+        transition: background 0.3s;
+        @include mixinColor.neumorphism(mixinColor.$light-background, 3px);
 
         &:hover {
-            transform: translateY(-50%) scale(1.1);
+            background: mixinColor.$highlight-color;
+            color: #000;
+            box-shadow: inset 4px 4px 8px mixinColor.$shadow-dark, inset -4px -4px 8px mixinColor.$shadow-light;
+        }
+
+        &:active {
+            box-shadow: inset 6px 6px 12px mixinColor.$shadow-dark, inset -6px -6px 12px mixinColor.$shadow-light;
         }
     }
 
-    .prev {
+    .video-prev {
         left: 10px;
     }
 
-    .next {
+    .video-next {
         right: 10px;
     }
 
@@ -119,7 +125,7 @@
             width: 220px;
         }
 
-        .nav-button {
+        .carousel-btn {
             font-size: 1.5rem;
             padding: 0.3rem;
         }
@@ -139,7 +145,7 @@
             width: 180px;
         }
 
-        .nav-button {
+        .carousel-btn {
             display: none; // Ocultamos los botones en móviles para usar swipe
         }
     }

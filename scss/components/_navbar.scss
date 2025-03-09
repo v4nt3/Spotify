@@ -1,12 +1,16 @@
 @use "./mixinColor";
 
 .navbar {
-    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 12px 20px;
     background: mixinColor.$bg-color;
     box-shadow: 0 4px 6px mixinColor.$shadow-dark;
+    height: 100px;
+    position: fixed;
+    width: 99%;
+    display: flex;
+    @include mixinColor.neumorphism(mixinColor.$bg-color, 3px);
 
     .navbar-brand img {
         max-height: 40px;
@@ -38,7 +42,7 @@
         }
     }
 
-    /* Responsividad */
+    /* 🔹 Responsividad */
     @media (max-width: 768px) {
         padding: 10px 15px;
 
@@ -62,7 +66,10 @@
 
     @media (max-width: 480px) {
         flex-direction: column;
+        align-items: center; // Centra elementos en columnas
         gap: 10px;
+        height: auto; // Permite que la navbar se expanda si es necesario
+        padding: 10px;
 
         .navbar-brand img {
             max-height: 30px;
