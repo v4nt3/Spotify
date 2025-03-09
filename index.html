@@ -45,9 +45,9 @@
       <i class="fas fa-bars"></i>
     </button>
 
+    
     <aside class="column is-one-fifth sidebar">
       <div class="sidebar-content">
-        
         <nav class="menu">
           <p class="menu-label">Navegación</p>
           <ul class="menu-list">
@@ -58,18 +58,12 @@
             <li><a href="#"><i class="fas fa-music"></i> Explorar</a></li>
             <li><a href="#"><i class="fas fa-user"></i> Artistas</a></li>
             <li><a href="#"><i class="fas fa-cog"></i> Configuración</a></li>
-
           </ul>
         </nav>
-        
 
         <div class="sound-wave">
           <span></span><span></span><span></span><span></span><span></span>
         </div>
-        
-        <div id="particle-container"></div>
-
-        
       </div>
     </aside>
 
@@ -80,25 +74,9 @@
       <section class="trending-section">
         <h2 class="title">Tendencias</h2>
         <div class="carousel-container">
-          <button class="nav-button prev">&#10094;</button>
-          <div class="video-carousel">
-            <div class="video-card">
-              <img src="./img/epic.webp">
-            </div>
-            <div class="video-card">
-              <img src="./img/epic.webp">
-            </div>
-            <div class="video-card">
-              <img src="./img/epic.webp">
-            </div>
-            <div class="video-card">
-              <img src="./img/epic.webp">
-            </div>
-            <div class="video-card">
-              <img src="./img/epic.webp">
-            </div>
-          </div>
-          <button class="nav-button next">&#10094;</button>
+          <button class="carousel-btn video-prev">&#10094;</button>
+          <div class="video-carousel"></div>
+          <button class="carousel-btn video-next">&#10095;</button>
         </div>
       </section>
       
@@ -112,7 +90,7 @@
      
       <section class="song-section">
         <h2 class="title">Canciones Destacadas</h2>
-        <button class="carousel-btn prev">&#10094;</button>
+        <button class="carousel-btn song-prev">&#10094;</button>
         <div class="song-container">
             <div class="song">
                 <img src="img/cyclops.jpg" alt="Canción 1">
@@ -138,51 +116,59 @@
                 <img src="img/wisdom.jpeg" alt="Canción 6">
                 <p>Wisdom saga - 1</p>
             </div>
+              <div class="song">
+                <img src="img/circe.jpg" alt="Canción 8">
+                <p>Circe saga - 1</p>
+            </div>
             <div class="song">
-              <img src="img/ocean.jpg" alt="Canción 3">
-              <p>Ocean saga - 1</p>
-          </div>
+              <img src="img/vengeance.jpg" alt="Canción 8">
+              <p>Circe saga - 1</p>
+            </div>
+            <div class="song">
+              <img src="img/underworld.jpeg" alt="Canción 8">
+              <p>Circe saga - 1</p>
+            </div>
         </div>
-        <button class="carousel-btn next">&#10095;</button>
-    </section>
+        <button class="carousel-btn song-next">&#10095;</button>
+      </section>
     
     
     
     
-    <footer class="footer custom-footer">
-      <div class="container">
-          <div class="columns">
-              <!-- Sección 1: Sobre Nosotros -->
-              <div class="column">
-                  <h3 class="title is-5">Sobre Nosotros</h3>
-                  <p>Tu plataforma favorita para descubrir y disfrutar música.</p>
-              </div>
-  
-              <!-- Sección 2: Enlaces -->
-              <div class="column">
-                  <h3 class="title is-5">Enlaces</h3>
-                  <ul>
-                      <li><a href="#">Inicio</a></li>
-                      <li><a href="#">Tendencias</a></li>
-                      <li><a href="#">Explorar</a></li>
-                      <li><a href="#">Contacto</a></li>
-                  </ul>
-              </div>
-  
-              <!-- Sección 3: Redes Sociales -->
-              <div class="column">
-                  <h3 class="title is-5">Síguenos</h3>
-                  <div class="buttons">
-                      <a class="button social-button" href="#"><i class="fab fa-facebook"></i></a>
-                      <a class="button social-button" href="#"><i class="fab fa-twitter"></i></a>
-                      <a class="button social-button" href="#"><i class="fab fa-instagram"></i></a>
-                      <a class="button social-button" href="#"><i class="fab fa-youtube"></i></a>
-                  </div>
-              </div>
-          </div>
-          <p class="has-text-centered copyright">© 2024 Tu Plataforma Musical. Todos los derechos reservados.</p>
-      </div>
-  </footer>
+      <footer class="footer custom-footer">
+        <div class="container">
+            <div class="columns">
+                <!-- Sección 1: Sobre Nosotros -->
+                <div class="column">
+                    <h3 class="title is-5">Sobre Nosotros</h3>
+                    <p>Tu plataforma favorita para descubrir y disfrutar música.</p>
+                </div>
+    
+                <!-- Sección 2: Enlaces -->
+                <div class="column">
+                    <h3 class="title is-5">Enlaces</h3>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Tendencias</a></li>
+                        <li><a href="#">Explorar</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Sección 3: Redes Sociales -->
+                <div class="column">
+                    <h3 class="title is-5">Síguenos</h3>
+                    <div class="buttons">
+                        <a class="button social-button" href="#"><i class="fab fa-facebook"></i></a>
+                        <a class="button social-button" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="button social-button" href="#"><i class="fab fa-instagram"></i></a>
+                        <a class="button social-button" href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p class="has-text-centered copyright">© 2024 Tu Plataforma Musical. Todos los derechos reservados.</p>
+        </div>
+      </footer>
     </main>
   </div>
 

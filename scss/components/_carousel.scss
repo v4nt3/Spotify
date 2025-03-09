@@ -64,7 +64,7 @@
     }
 
     // Botones de navegación
-    .nav-button {
+    .carousel-btn {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
@@ -75,7 +75,7 @@
         cursor: pointer;
         z-index: 10;
         transition: background 0.3s;
-        @include mixinColor.neumorphism(mixinColor.$bg-color, 2px);
+        @include mixinColor.neumorphism(mixinColor.$light-background, 3px);
 
         &:hover {
             background: mixinColor.$highlight-color;
@@ -88,11 +88,11 @@
         }
     }
 
-    .prev {
+    .video-prev {
         left: 10px;
     }
 
-    .next {
+    .video-next {
         right: 10px;
     }
 
@@ -125,7 +125,7 @@
             width: 220px;
         }
 
-        .nav-button {
+        .carousel-btn {
             font-size: 1.5rem;
             padding: 0.3rem;
         }
@@ -145,7 +145,7 @@
             width: 180px;
         }
 
-        .nav-button {
+        .carousel-btn {
             display: none; // Ocultamos los botones en móviles para usar swipe
         }
     }

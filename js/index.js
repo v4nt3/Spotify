@@ -1,52 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const carousel = document.querySelector(".video-carousel");
-  const prevBtn = document.querySelector(".prev");
-  const nextBtn = document.querySelector(".next");
 
-  const scrollAmount = 450; 
+  // Song Carousel
+  const songCarousel = document.querySelector(".song-container");
+  const songPrevBtn = document.querySelector(".song-prev");
+  const songNextBtn = document.querySelector(".song-next");
+  const scrollAmount = 450;
+  if (songCarousel && songPrevBtn && songNextBtn) {
+    songPrevBtn.addEventListener("click", () => {
+      songCarousel.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    });
 
-  prevBtn.addEventListener("click", () => {
-    carousel.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-  });
+    songNextBtn.addEventListener("click", () => {
+      songCarousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    });
 
-  nextBtn.addEventListener("click", () => {
-    carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
-  });
+    function checkSongButtonsVisibility() {
+      const maxScrollLeft = songCarousel.scrollWidth - songCarousel.clientWidth;
+      songPrevBtn.style.display = songCarousel.scrollLeft > 0 ? "block" : "none";
+      songNextBtn.style.display = songCarousel.scrollLeft < maxScrollLeft ? "block" : "none";
+    }
 
-  // ocultar flechas si no hay mas videos en esa dirección
-  function checkButtonsVisibility() {
-    const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
-    prevBtn.style.display = carousel.scrollLeft > 0 ? "block" : "none";
-    nextBtn.style.display = carousel.scrollLeft < maxScrollLeft ? "block" : "none";
+    songCarousel.addEventListener("scroll", checkSongButtonsVisibility);
+    checkSongButtonsVisibility();
   }
-
-  carousel.addEventListener("scroll", checkButtonsVisibility);
-  checkButtonsVisibility();
 });
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const carousel = document.querySelector(".song-carousel");
-  const prevBtn = document.querySelector(".prev");
-  const nextBtn = document.querySelector(".next");
-
-  nextBtn.addEventListener("click", () => {
-      carousel.scrollBy({ left: 250, behavior: "smooth" });
-  });
-
-  prevBtn.addEventListener("click", () => {
-      carousel.scrollBy({ left: -250, behavior: "smooth" });
-  });
-
-  function checkButtonsVisibility() {
-    const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
-    prevBtn.style.display = carousel.scrollLeft > 0 ? "block" : "none";
-    nextBtn.style.display = carousel.scrollLeft < maxScrollLeft ? "block" : "none";
-  }
-
-  carousel.addEventListener("scroll", checkButtonsVisibility);
-  checkButtonsVisibility();
-});
-
-
-

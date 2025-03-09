@@ -9,7 +9,6 @@
     align-items: center;
     background: mixinColor.$bg-color;
     transition: transform 0.3s ease-in-out;
-
     /* Móviles: Sidebar oculto por defecto */
     @media (max-width: 768px) {
         transform: translateX(-100%);

@@ -21613,7 +21613,7 @@ has-background-danger.is-hoverable:active {
   transform: scale(0.95);
   box-shadow: inset 6px 6px 10px rgba(15, 15, 30, 0.6), inset -6px -6px 10px rgba(90, 120, 255, 0.2);
 }
-.trending-section .nav-button {
+.trending-section .carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -21624,22 +21624,22 @@ has-background-danger.is-hoverable:active {
   cursor: pointer;
   z-index: 10;
   transition: background 0.3s;
-  background: #0d0d0d;
+  background: #1e1e1e;
   border-radius: 16px;
-  box-shadow: 2px 2px 3px rgba(15, 15, 30, 0.6), -2px -2px 3px rgba(90, 120, 255, 0.2);
+  box-shadow: 3px 3px 4.5px rgba(15, 15, 30, 0.6), -3px -3px 4.5px rgba(90, 120, 255, 0.2);
 }
-.trending-section .nav-button:hover {
+.trending-section .carousel-btn:hover {
   background: #18b6ff;
   color: #000;
   box-shadow: inset 4px 4px 8px rgba(15, 15, 30, 0.6), inset -4px -4px 8px rgba(90, 120, 255, 0.2);
 }
-.trending-section .nav-button:active {
+.trending-section .carousel-btn:active {
   box-shadow: inset 6px 6px 12px rgba(15, 15, 30, 0.6), inset -6px -6px 12px rgba(90, 120, 255, 0.2);
 }
-.trending-section .prev {
+.trending-section .video-prev {
   left: 10px;
 }
-.trending-section .next {
+.trending-section .video-next {
   right: 10px;
 }
 @media (max-width: 1024px) {
@@ -21664,7 +21664,7 @@ has-background-danger.is-hoverable:active {
   .trending-section .video-card {
     width: 220px;
   }
-  .trending-section .nav-button {
+  .trending-section .carousel-btn {
     font-size: 1.5rem;
     padding: 0.3rem;
   }
@@ -21680,7 +21680,7 @@ has-background-danger.is-hoverable:active {
   .trending-section .video-card {
     width: 180px;
   }
-  .trending-section .nav-button {
+  .trending-section .carousel-btn {
     display: none;
   }
 }
@@ -21988,6 +21988,7 @@ has-background-danger.is-hoverable:active {
   margin-top: 30px;
   margin-bottom: 40px;
   position: relative;
+  margin-left: 30px;
   /* Botones de navegación */
   /* Responsividad */
 }
@@ -21998,20 +21999,21 @@ has-background-danger.is-hoverable:active {
   margin-bottom: 30px;
 }
 .song-section .song-container {
-  display: grid;
+  display: flex;
   grid-auto-flow: column;
   gap: 75px;
-  overflow: hidden;
+  overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   width: 100%;
   padding: 10px;
+  white-space: nowrap;
 }
 .song-section .song-container::-webkit-scrollbar {
   display: none;
 }
 .song-section .song {
-  display: flex;
+  flex: 0 0 auto;
   flex-direction: column;
   align-items: center;
   transition: transform 0.3s ease-in-out;
@@ -22043,9 +22045,9 @@ has-background-danger.is-hoverable:active {
   cursor: pointer;
   z-index: 10;
   transition: background 0.3s;
-  background: #0d0d0d;
+  background: #1e1e1e;
   border-radius: 16px;
-  box-shadow: 2px 2px 3px rgba(15, 15, 30, 0.6), -2px -2px 3px rgba(90, 120, 255, 0.2);
+  box-shadow: 3px 3px 4.5px rgba(15, 15, 30, 0.6), -3px -3px 4.5px rgba(90, 120, 255, 0.2);
 }
 .song-section .carousel-btn:hover {
   background: #18b6ff;
@@ -22055,10 +22057,10 @@ has-background-danger.is-hoverable:active {
 .song-section .carousel-btn:active {
   box-shadow: inset 6px 6px 12px rgba(15, 15, 30, 0.6), inset -6px -6px 12px rgba(90, 120, 255, 0.2);
 }
-.song-section .prev {
+.song-section .song-prev {
   left: 10px;
 }
-.song-section .next {
+.song-section .song-next {
   right: 10px;
 }
 @media (max-width: 768px) {

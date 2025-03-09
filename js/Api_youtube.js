@@ -28,39 +28,77 @@ function changeVideo(videoId) {
   }
 console.log("✅ El script JavaScript se está ejecutando correctamente.");
 async function loadVideos() {
-    console.log("Cargando videos...");
-    try {
-        // Cargar la lista de videos desde el json
-        const response = await fetch("js/videos.json");
-        const videos = await response.json();
-        console.log(videos);
+  console.log("Cargando videos...");
+  try {
+      const response = await fetch("js/videos.json");
+      const videos = await response.json();
+      console.log(videos);
 
-        // crear el carrusel de videos
-        const carousel = document.querySelector(".video-carousel");
-        
-        
+      // Buscar el carrusel
+      const carousel = document.querySelector(".video-carousel");
 
-        // crear un contenedor para cada video
-        videos.forEach(video => {
-        const videoCar = document.createElement("div");
-        videoCar.className = "video-card";
+      if (!carousel) {
+          console.error("⚠ No se encontró el carrusel de videos en el DOM.");
+          return;
+      }
 
-        // crear un miniatura del video
-        const img = document.createElement("img");
-        img.src = `https://img.youtube.com/vi/${video.id}/0.jpg`;
-        img.alt = video.title;
-        img.onclick = () => changeVideo(video.id);
+      // Limpiar contenido previo
+      carousel.innerHTML = "";
 
-        // agregar la miniatura al cont
-        videoCar.appendChild(img);
-        carousel.appendChild(videoCar);
-        });
-        document.querySelector(".nav-button.prev").style.display = "block";
-        document.querySelector(".nav-button.next").style.display = "block";
-    } catch (error) {
-        console.error("Error al cargar los videos", error);
-        
-    }
+      // Agregar videos al carrusel
+      videos.forEach(video => {
+          const videoCar = document.createElement("div");
+          videoCar.className = "video-card";
+
+          const img = document.createElement("img");
+          img.src = `https://img.youtube.com/vi/${video.id}/0.jpg`;
+          img.alt = video.title;
+          img.onclick = () => changeVideo(video.id);
+
+          videoCar.appendChild(img);
+          carousel.appendChild(videoCar);
+      });
+
+      // Asegurar que los botones de navegación aparezcan
+      document.querySelector(".video-prev").style.display = "block";
+      document.querySelector(".video-next").style.display = "block";
+
+      // 🚀 Una vez cargados los videos, inicializar los eventos del carrusel
+      setupVideoCarousel();
+
+  } catch (error) {
+      console.error("Error al cargar los videos", error);
+  }
+}
+
+function setupVideoCarousel() {
+  const carousel = document.querySelector(".video-carousel");
+  const prevBtn = document.querySelector(".video-prev");
+  const nextBtn = document.querySelector(".video-next");
+
+  if (!carousel || !prevBtn || !nextBtn) {
+      console.error("⚠ No se encontraron elementos del carrusel.");
+      return;
+  }
+
+  const scrollAmount = 450;
+
+  prevBtn.addEventListener("click", () => {
+      carousel.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+  });
+
+  nextBtn.addEventListener("click", () => {
+      carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  });
+
+  function checkButtonsVisibility() {
+      const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+      prevBtn.style.display = carousel.scrollLeft > 0 ? "block" : "none";
+      nextBtn.style.display = carousel.scrollLeft < maxScrollLeft ? "block" : "none";
+  }
+
+  carousel.addEventListener("scroll", checkButtonsVisibility);
+  checkButtonsVisibility();
 }
 
 document.addEventListener("DOMContentLoaded", loadVideos);
