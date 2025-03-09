@@ -30,40 +30,31 @@ a {
 }
 
 main {
-  position: relative;  
-  margin-top: 110px;  
-  margin-left: 400px; 
-
-  @include mixinColor.neumorphism(mixinColor.$bg-color, 3px);
+  position: fixed; 
+  top: 120px; 
+  left: 400px; 
+  width: calc(91.5% - 250px); // Resta el ancho del sidebar
+  height: calc(92vh - 60px); // Resta la altura del navbar
+  
+  
+  @include mixinColor.neumorphism(mixinColor.$bg-color, 2.5px);
   padding: 20px;
-  transition: margin-left 0.3s ease; 
 
-  .main-content {
-    min-height: 100%; 
-    overflow-y: auto;
-    padding: 10px;
-    scrollbar-width: none;
+.main-content {
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
-    .top-bar {
-      padding: 1rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
+  height: 100%; // Ocupa toda la altura del main
+  overflow-y: auto; // Permite desplazamiento solo interno
+  padding: 10px;
+  scrollbar-width: none;
+  
+  .main-content::-webkit-scrollbar {
+    display: none; // Oculta la barra en Chrome, Edge y Safari
   }
 
-  /*RESPONSIVIDAD */
-  @media (max-width: 1024px) {
-    margin-left: 250px; //Sidebar más pequeño en tablets
-    width: calc(100% - 250px);
+  .top-bar {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  @media (max-width: 768px) {
-    margin-left: 0; // Sidebar oculto o sobrepuesto en móviles
-    width: 100%;
-  }
-
-
+}
 }
