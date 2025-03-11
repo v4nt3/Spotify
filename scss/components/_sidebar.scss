@@ -60,7 +60,7 @@
                     font-size: 1rem;
                     color: mixinColor.$text-color;
                     transition: all 0.3s ease-in-out;
-                    @include mixinColor.neumorphism(mixinColor.$bg-color, 3px);
+                    @include mixinColor.neumorphism(mixinColor.$bg-color, 0.8px);
 
                     i {
                         margin-right: 10px;

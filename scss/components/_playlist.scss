@@ -12,7 +12,7 @@
     flex: 2;
     max-width: min(100%, 600px);
     width: 100%;
-    @include mixinColor.neumorphism(mixinColor.$light-background, 3px);
+    @include mixinColor.neumorphism(mixinColor.$light-background, 0);
     border-radius: mixinColor.$box-radius;
     padding: 20px;
     display: flex;
@@ -29,7 +29,7 @@
     color: white;
     overflow-y: auto;
     max-height: 355px;
-    @include mixinColor.neumorphism(mixinColor.$light-background, 3px);
+    @include mixinColor.neumorphism(mixinColor.$light-background, 0px);
 
     &::-webkit-scrollbar {
       display: none;

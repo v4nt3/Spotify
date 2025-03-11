@@ -21600,7 +21600,7 @@ has-background-danger.is-hoverable:active {
   border-radius: 12px;
   background: #0d0d0d;
   border-radius: 16px;
-  box-shadow: 3px 3px 4.5px rgba(15, 15, 30, 0.6), -3px -3px 4.5px rgba(90, 120, 255, 0.2);
+  box-shadow: 0 0 0 rgba(15, 15, 30, 0.6), 0 0 0 rgba(90, 120, 255, 0.2);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 .trending-section .video-carousel .video-card:hover {
@@ -21624,9 +21624,6 @@ has-background-danger.is-hoverable:active {
   cursor: pointer;
   z-index: 10;
   transition: background 0.3s;
-  background: #1e1e1e;
-  border-radius: 16px;
-  box-shadow: 3px 3px 4.5px rgba(15, 15, 30, 0.6), -3px -3px 4.5px rgba(90, 120, 255, 0.2);
 }
 .trending-section .nav-button:hover {
   background: #a200d6;
@@ -21828,7 +21825,7 @@ has-background-danger.is-hoverable:active {
   transition: all 0.3s ease-in-out;
   background: #0d0d0d;
   border-radius: 16px;
-  box-shadow: 3px 3px 4.5px rgba(15, 15, 30, 0.6), -3px -3px 4.5px rgba(90, 120, 255, 0.2);
+  box-shadow: 0.8px 0.8px 1.2px rgba(15, 15, 30, 0.6), -0.8px -0.8px 1.2px rgba(90, 120, 255, 0.2);
 }
 .sidebar .menu .menu-list li a i {
   margin-right: 10px;
@@ -22282,7 +22279,7 @@ has-background-danger.is-hoverable:active {
   width: 100%;
   background: #1e1e1e;
   border-radius: 16px;
-  box-shadow: 3px 3px 4.5px rgba(15, 15, 30, 0.6), -3px -3px 4.5px rgba(90, 120, 255, 0.2);
+  box-shadow: 0 0 0 rgba(15, 15, 30, 0.6), 0 0 0 rgba(90, 120, 255, 0.2);
   border-radius: 16px;
   padding: 20px;
   display: flex;
@@ -22300,7 +22297,7 @@ has-background-danger.is-hoverable:active {
   max-height: 355px;
   background: #1e1e1e;
   border-radius: 16px;
-  box-shadow: 3px 3px 4.5px rgba(15, 15, 30, 0.6), -3px -3px 4.5px rgba(90, 120, 255, 0.2);
+  box-shadow: 0px 0px 0px rgba(15, 15, 30, 0.6), 0px 0px 0px rgba(90, 120, 255, 0.2);
 }
 .content-section .playlist::-webkit-scrollbar {
   display: none;

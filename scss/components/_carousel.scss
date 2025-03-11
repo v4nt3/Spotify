@@ -47,7 +47,7 @@
             background: mixinColor.$light-background;
             padding: 15px;
             border-radius: 12px;
-            @include mixinColor.neumorphism(mixinColor.$bg-color, 3px);
+            @include mixinColor.neumorphism(mixinColor.$bg-color, 0);
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
            &:hover {
@@ -76,7 +76,6 @@
         cursor: pointer;
         z-index: 10;
         transition: background 0.3s;
-        @include mixinColor.neumorphism(mixinColor.$light-background, 3px);
 
         &:hover {
             background: mixinColor.$highlight-color;
