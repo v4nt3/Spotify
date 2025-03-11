@@ -28,7 +28,7 @@
     border-radius: mixinColor.$box-radius;
     color: white;
     overflow-y: auto;
-    max-height: 400px;
+    max-height: 355px;
     @include mixinColor.neumorphism(mixinColor.$light-background, 3px);
 
     &::-webkit-scrollbar {
