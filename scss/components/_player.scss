@@ -1,11 +1,10 @@
 @use "./mixinColor";
 
-
 .player-section {
     position: fixed;
     bottom: 20px;
     left: 50%;
-    transform: translateX(-25%);
+    transform: translateX(-15%);
     width: 90%;
     max-width: 800px;
     z-index: 1000;
@@ -16,96 +15,202 @@
         color: white;
         cursor: pointer;
     }
+
     #close-player:hover {
         color: mixinColor.$highlight-color;
     }
-    
-  
+
     .player-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: mixinColor.$light-background;
-      padding: 15px;
-      border-radius: 12px;
-      @include mixinColor.neumorphism(mixinColor.$light-background, 3px);
-      
-      .song-info {
         display: flex;
         align-items: center;
+        justify-content: space-between;
+        background: mixinColor.$light-background;
+        padding: 12px 15px;
+        border-radius: 12px;
+        @include mixinColor.neumorphism(mixinColor.$light-background, 3px);
         gap: 10px;
-  
-        .song-cover {
-          width: 55px;
-          height: 55px;
-          border-radius: 10px;
-          margin-left: 7px;
-          box-shadow: inset 4px 4px 6px mixinColor.$shadow-dark, inset -4px -4px 6px mixinColor.$shadow-light;
+        overflow: hidden; // Evita que los controles se salgan en pantallas pequeñas
+
+        .song-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 1; // Permite que el texto se ajuste en pantallas pequeñas
+
+            .song-cover {
+                width: 45px;
+                height: 45px;
+                border-radius: 8px;
+                margin-left: 5px;
+                box-shadow: inset 3px 3px 5px mixinColor.$shadow-dark, inset -3px -3px 5px mixinColor.$shadow-light;
+            }
+
+            .song-details {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                .song-title {
+                    font-size: 14px;
+                    font-weight: bold;
+                    color: white;
+                    text-shadow: 1px 1px 2px mixinColor.$shadow-dark;
+                }
+
+                .song-artist {
+                    font-size: 12px;
+                    color: #aaa;
+                }
+            }
         }
-  
-        .song-details {
-          .song-title {
-            font-size: 14px;
-            font-weight: bold;
-            color: white;
-            margin-right: 10px;
-            text-shadow: 1px 1px 2px mixinColor.$shadow-dark;
-          }
-          .song-artist {
-            font-size: 12px;
-            color: #aaa;
-          }
+
+        .player-controls {
+            display: flex;
+            gap: 10px;
+
+            button {
+                border: none;
+                color: mixinColor.$text-color;
+                font-size: 14px;
+                padding: 8px 10px;
+                border-radius: mixinColor.$box-radius;
+                @include mixinColor.neumorphism(mixinColor.$light-background, 3px);
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    box-shadow: inset 3px 3px 5px mixinColor.$shadow-dark, inset -3px -3px 5px mixinColor.$shadow-light;
+                }
+
+                &:active {
+                    transform: scale(0.95);
+                    box-shadow: inset 5px 5px 7px mixinColor.$shadow-dark, inset -5px -5px 7px mixinColor.$shadow-light;
+                }
+            }
         }
-      }
-  
-      .player-controls {
-        display: flex;
-        gap: 15px;
-  
-        button {
-          border: none;
-          color: mixinColor.$text-color;
-          font-size: 16px;
-          padding: 12px 18px;
-          border-radius: mixinColor.$box-radius;
-          @include mixinColor.neumorphism(mixinColor.$light-background, 3px);
-          transition: all 0.3s ease-in-out;
-          margin-right: 7px;
-        
-          &:hover {
-            box-shadow: inset 4px 4px 6px mixinColor.$shadow-dark, inset -4px -4px 6px mixinColor.$shadow-light;
-          }
-        
-          &:active {
-            transform: scale(0.98);
-            box-shadow: inset 6px 6px 8px mixinColor.$shadow-dark, inset -6px -6px 8px mixinColor.$shadow-light;
-          }
+
+        .player-progress,
+        .player-volume {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            input[type="range"] {
+                appearance: none;
+                height: 4px;
+                border-radius: 10px;
+                cursor: pointer;
+                width: 70px;
+
+                &::-webkit-slider-thumb {
+                    appearance: none;
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                    background: white;
+                    box-shadow: 2px 2px 5px mixinColor.$shadow-dark, -2px -2px 5px mixinColor.$shadow-light;
+                }
+            }
         }
-        
-      }
-  
-      .player-progress,
-      .player-volume {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-  
-        input[type="range"] {
-          appearance: none;
-          height: 5px;
-          border-radius: 10px;
-          box-shadow: inset 2px 2px 5px mixinColor.$shadow-dark, inset -2px -2px 5px mixinColor.$shadow-light;
-          cursor: pointer;
-          
-          &::-webkit-slider-thumb {
-            appearance: none;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: white;
-            box-shadow: 2px 2px 6px mixinColor.$shadow-dark, -2px -2px 6px mixinColor.$shadow-light;
-          }
-        }
-      }
     }
-  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .player-section {
+        width: 95%;
+        bottom: 10px;
+    }
+
+    .player-container {
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
+        gap: 5px;
+
+        .song-info {
+            gap: 5px;
+            .song-cover {
+                width: 40px;
+                height: 40px;
+            }
+
+            .song-details {
+                .song-title {
+                    font-size: 12px;
+                }
+                .song-artist {
+                    font-size: 10px;
+                }
+            }
+        }
+
+        .player-controls {
+            gap: 8px;
+            button {
+                font-size: 12px;
+                padding: 6px 8px;
+            }
+        }
+
+        .player-progress,
+        .player-volume {
+            width: auto;
+            gap: 5px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .player-section {
+        width: 100%;
+        left: 0;
+        transform: none;
+        bottom: 0;
+        border-radius: 0;
+    }
+
+    .player-container {
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 8px;
+        gap: 5px;
+
+        .song-info {
+            flex-direction: row;
+            text-align: left;
+            align-items: center;
+            gap: 5px;
+            flex-shrink: 1;
+
+            .song-cover {
+                width: 35px;
+                height: 35px;
+            }
+
+            .song-details {
+                max-width: 120px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                font-size: 10px;
+            }
+        }
+
+        .player-controls {
+            display: flex;
+            gap: 5px;
+
+            button {
+                font-size: 10px;
+                padding: 4px 6px;
+            }
+        }
+
+        .player-progress,
+        .player-volume {
+            width: auto;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

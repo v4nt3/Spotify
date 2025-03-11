@@ -10,28 +10,26 @@
 
   .content-box {
     flex: 2;
-    max-width: min(55%, 600px);
+    max-width: min(100%, 600px);
     width: 100%;
     @include mixinColor.neumorphism(mixinColor.$light-background, 3px);
     border-radius: mixinColor.$box-radius;
-    box-shadow: inset 4px 4px 6px mixinColor.$shadow-dark, inset -4px -4px 6px mixinColor.$shadow-light;
     padding: 20px;
     display: flex;
-    justify-content: center; /* Centra el video */
+    justify-content: center; /* Centra el contenido */
     align-items: center;
   }
 
   .playlist {
     flex: 1;
-    max-width: min(40%, 400px);
+    max-width: min(100%, 400px);
     width: 100%;
     padding: 15px;
-    border-radius: 8px;
+    border-radius: mixinColor.$box-radius;
     color: white;
     overflow-y: auto;
     max-height: 400px;
     @include mixinColor.neumorphism(mixinColor.$light-background, 3px);
-    border-radius: mixinColor.$box-radius;
 
     &::-webkit-scrollbar {
       display: none;
@@ -55,7 +53,7 @@
       gap: 10px;
       padding: 8px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.2s;
       border-radius: mixinColor.$box-radius;
 
       &:hover {
@@ -83,31 +81,30 @@
     align-items: center;
   }
 
-  .content-box {
-    max-width: 80%;
-  }
-
+  .content-box,
   .playlist {
     max-width: 80%;
   }
 }
 
 @media (max-width: 768px) {
-  .content-box, .playlist {
+  .content-box,
+  .playlist {
     max-width: 100%;
   }
 }
 
+/* 🔹 Video */
 .video-container {
   position: relative;
-  width: 100%; /* Se adapta al contenedor */
-  max-width: 800px; /* Ajusta según el diseño */
+  width: 100%;
+  max-width: 800px;
   aspect-ratio: 16 / 9;
   margin: 0 auto;
-  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 #video-player {
@@ -115,7 +112,6 @@
   height: 100%;
   display: block;
 }
-
 
 @media (max-width: 1024px) {
   .video-container {
