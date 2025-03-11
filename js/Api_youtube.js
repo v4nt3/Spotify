@@ -10,43 +10,48 @@ function onYouTubeIframeAPIReady() {
       }
     });
   }
-
+  // Reproducir video cuando el reproductor esté listo
 function onPlayerReady(event) {
     console.log("Reproductor listo");
     event.player.playVideo();
   }
-
+  // Cambiar el video que se está reproduciendo en el reproductor
 function changeVideo(videoId) {
     if (player) {
       player.loadVideoById(videoId);
     } else {
-      player = new YT.Player('video-player', {
+      player = new YT.Player('video-player', { // Crear un nuevo reproductor si no existe
         height: '360',
         width: '640',
         videoId: videoId
       });
     }
   }
-console.log("✅ El script JavaScript se está ejecutando correctamente.");
+
+
+  //Insertar el videos en el carrusel 
 async function loadVideos() {
     console.log("Cargando videos...");
     try {
         // Cargar la lista de videos desde el json
-        const response = await fetch("js/videos.json");
-        const videos = await response.json();
-        console.log(videos);
+      const response = await fetch("js/videos.json");
+      const videos = await response.json();
+      console.log(videos);
 
+      // Seleccionar los elementos del DOM
       const carousel = document.querySelector(".video-carousel");
       const playlistContainer = document.getElementById("playlist-container");
 
+      // Verificar si los elementos existen
       if (!carousel || !playlistContainer) {
-          console.error("⚠ No se encontró el contenedor del carrusel o la playlist.");
+          console.error("No se encontró el contenedor del carrusel o la playlist.");
           return;
       }
 
       carousel.innerHTML = "";
       playlistContainer.innerHTML = "";
-
+      
+      // Recorrer la lista de videos el json y agregarlos al carrusel y la playlist lateral
       videos.forEach(video => {
           
           const playlistItem = document.createElement("li");
@@ -55,8 +60,8 @@ async function loadVideos() {
               <span>${video.title}</span>
           `;
           playlistItem.onclick = () => changeVideo(video.id);
-
           playlistContainer.appendChild(playlistItem);
+
 
           const videoCar = document.createElement("div");
           videoCar.className = "video-card";
@@ -70,6 +75,7 @@ async function loadVideos() {
           carousel.appendChild(videoCar);
       });
 
+      // Mostrar los botones de navegación
       document.querySelector(".video-prev").style.display = "block";
       document.querySelector(".video-next").style.display = "block";
 
@@ -80,12 +86,15 @@ async function loadVideos() {
   }
 }
 
-
+// Configurar el cuadro de videos
 function setupVideoCarousel() {
+
+  // Seleccionar los elementos del DOM
   const carousel = document.querySelector(".video-carousel");
   const prevBtn = document.querySelector(".video-prev");
   const nextBtn = document.querySelector(".video-next");
 
+  // Verificar si los elementos existen
   if (!carousel || !prevBtn || !nextBtn) {
       console.error("⚠ No se encontraron elementos del carrusel.");
       return;
@@ -101,6 +110,7 @@ function setupVideoCarousel() {
       carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
   });
 
+  // Mostrar u ocultar los botones de navegación
   function checkButtonsVisibility() {
       const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
       prevBtn.style.display = carousel.scrollLeft > 0 ? "block" : "none";
@@ -111,4 +121,5 @@ function setupVideoCarousel() {
   checkButtonsVisibility();
 }
 
+// Cargar los videos cuando el la pagina haya cargado
 document.addEventListener("DOMContentLoaded", loadVideos);
