@@ -10,9 +10,9 @@
     height: 100px;
     position: fixed;
     width: 100%;
+    @include mixinColor.neumorphism(mixinColor.$bg-color, 5px);
     left: 0;
     top: 0;
-    @include mixinColor.neumorphism(mixinColor.$bg-color, 3px);
 
     .navbar-brand img {
         max-height: 40px;

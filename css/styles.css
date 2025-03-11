@@ -21565,7 +21565,7 @@ has-background-danger.is-hoverable:active {
   /* Responsividad */
 }
 .trending-section .title {
-  color: #18b6ff;
+  color: #ffffff;
   font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: bold;
   margin-bottom: 1rem;
@@ -21629,7 +21629,7 @@ has-background-danger.is-hoverable:active {
   box-shadow: 3px 3px 4.5px rgba(15, 15, 30, 0.6), -3px -3px 4.5px rgba(90, 120, 255, 0.2);
 }
 .trending-section .nav-button:hover {
-  background: #18b6ff;
+  background: #a200d6;
   color: #000;
   box-shadow: inset 4px 4px 8px rgba(15, 15, 30, 0.6), inset -4px -4px 8px rgba(90, 120, 255, 0.2);
 }
@@ -21695,11 +21695,11 @@ has-background-danger.is-hoverable:active {
   height: 100px;
   position: fixed;
   width: 100%;
-  left: 0;
-  top: 0;
   background: #0d0d0d;
   border-radius: 16px;
-  box-shadow: 3px 3px 4.5px rgba(15, 15, 30, 0.6), -3px -3px 4.5px rgba(90, 120, 255, 0.2);
+  box-shadow: 5px 5px 7.5px rgba(15, 15, 30, 0.6), -5px -5px 7.5px rgba(90, 120, 255, 0.2);
+  left: 0;
+  top: 0;
   /* 🔹 Responsividad */
 }
 .navbar .navbar-brand img {
@@ -21724,7 +21724,7 @@ has-background-danger.is-hoverable:active {
   font-size: 1rem;
 }
 .navbar .search-container i {
-  color: #18b6ff;
+  color: #ffffff;
   font-size: 1.2rem;
   margin-left: 8px;
 }
@@ -21781,7 +21781,7 @@ has-background-danger.is-hoverable:active {
   z-index: 250;
   background: #0d0d0d;
   border-radius: 16px;
-  box-shadow: 3px 3px 4.5px rgba(15, 15, 30, 0.6), -3px -3px 4.5px rgba(90, 120, 255, 0.2);
+  box-shadow: 5px 5px 7.5px rgba(15, 15, 30, 0.6), -5px -5px 7.5px rgba(90, 120, 255, 0.2);
   /* Móviles: Sidebar oculto por defecto */
   /* Cuando el sidebar está activo */
 }
@@ -21834,7 +21834,7 @@ has-background-danger.is-hoverable:active {
   margin-right: 10px;
 }
 .sidebar .menu .menu-list li a:hover {
-  background: #18b6ff;
+  background: #a200d6;
   color: #000;
   box-shadow: inset 4px 4px 8px rgba(15, 15, 30, 0.6), inset -4px -4px 8px rgba(90, 120, 255, 0.2);
 }
@@ -21894,7 +21894,7 @@ has-background-danger.is-hoverable:active {
   width: 6px;
   height: 20px;
   margin: 0 3px;
-  background: #18b6ff;
+  background: #ffffff;
   animation: wave-animation 1.2s infinite ease-in-out;
 }
 .sound-wave span:nth-child(1) {
@@ -21933,7 +21933,7 @@ has-background-danger.is-hoverable:active {
 .song-section .title {
   font-size: clamp(1.2rem, 2vw, 1.5rem);
   font-weight: bold;
-  color: #18b6ff;
+  color: #ffffff;
   margin-bottom: 30px;
 }
 .song-section .song-container {
@@ -21988,7 +21988,7 @@ has-background-danger.is-hoverable:active {
   box-shadow: 3px 3px 4.5px rgba(15, 15, 30, 0.6), -3px -3px 4.5px rgba(90, 120, 255, 0.2);
 }
 .song-section .carousel-btn:hover {
-  background: #18b6ff;
+  background: #a200d6;
   color: #000;
   box-shadow: inset 4px 4px 8px rgba(15, 15, 30, 0.6), inset -4px -4px 8px rgba(90, 120, 255, 0.2);
 }
@@ -22021,16 +22021,16 @@ has-background-danger.is-hoverable:active {
   /* Estilos responsivos */
 }
 .custom-footer .title {
-  color: #18b6ff;
+  color: #ffffff;
   font-size: clamp(1.5rem, 2.5vw, 2rem);
 }
 .custom-footer a {
-  color: #18b6ff;
+  color: #a200d6;
   text-decoration: none;
   transition: color 0.3s ease-in-out;
 }
 .custom-footer a:hover {
-  color: #18b6ff;
+  color: #a200d6;
 }
 .custom-footer .social-button {
   border-radius: 70%;
@@ -22047,7 +22047,7 @@ has-background-danger.is-hoverable:active {
 }
 .custom-footer .social-button:hover {
   transform: scale(1.1);
-  background: #18b6ff;
+  background: #a200d6;
   color: #000;
   box-shadow: inset 4px 4px 8px rgba(15, 15, 30, 0.6), inset -4px -4px 8px rgba(90, 120, 255, 0.2);
 }
@@ -22094,7 +22094,7 @@ has-background-danger.is-hoverable:active {
   cursor: pointer;
 }
 .player-section #close-player:hover {
-  color: #18b6ff;
+  color: #a200d6;
 }
 .player-section .player-container {
   display: flex;
@@ -22217,7 +22217,7 @@ has-background-danger.is-hoverable:active {
   display: none;
 }
 .content-section .playlist h3 {
-  color: #18b6ff;
+  color: #ffffff;
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -22294,12 +22294,16 @@ has-background-danger.is-hoverable:active {
     max-width: 100%;
   }
 }
+@font-face {
+  font-family: "MiFuente";
+  src: url("/assets/sono/desktop/Sono-Medium.ttf") format("truetype");
+}
 body {
   display: flex;
   flex-direction: column;
   padding: 10px;
   background-color: #1e1e1e;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "MiFuente", sans-serif;
 }
 
 /* 🔹 Enlaces */
@@ -22309,7 +22313,7 @@ a {
   transition: color 0.3s;
 }
 a:hover {
-  color: #18b6ff;
+  color: #a200d6;
 }
 
 /* 🔹 Contenedor Principal */
@@ -22324,7 +22328,7 @@ main {
   transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
   background: #0d0d0d;
   border-radius: 16px;
-  box-shadow: 2.5px 2.5px 3.75px rgba(15, 15, 30, 0.6), -2.5px -2.5px 3.75px rgba(90, 120, 255, 0.2);
+  box-shadow: 5px 5px 7.5px rgba(15, 15, 30, 0.6), -5px -5px 7.5px rgba(90, 120, 255, 0.2);
 }
 main .main-content {
   height: 100%;

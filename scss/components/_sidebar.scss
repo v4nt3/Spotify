@@ -13,7 +13,7 @@
     top: 120px; // Desktop
     left: 0;
     z-index: 250; // Más alto que el overlay
-    @include mixinColor.neumorphism(mixinColor.$bg-color, 3px);
+    @include mixinColor.neumorphism(mixinColor.$bg-color, 5px);
 
     /* Móviles: Sidebar oculto por defecto */
     @media (max-width: 768px) {

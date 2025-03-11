@@ -10,12 +10,17 @@
 @use "./components/player";
 @use "./components/playlist";
 
+@font-face {
+  font-family: 'MiFuente';
+  src: url('/assets/sono/desktop/Sono-Medium.ttf') format('truetype');
+}
+
 body {
   display: flex;
   flex-direction: column;
   padding: 10px;
   background-color: mixinColor.$light-background;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'MiFuente', sans-serif;
 }
 
 /* 🔹 Enlaces */
@@ -39,7 +44,8 @@ main {
   padding: 20px;
   overflow: hidden; // Evita desbordes
   transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
-  @include mixinColor.neumorphism(mixinColor.$bg-color, 2.5px);
+  @include mixinColor.neumorphism(mixinColor.$bg-color, 5px);
+  
 
   .main-content {
     height: 100%;
